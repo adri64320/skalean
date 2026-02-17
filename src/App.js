@@ -537,7 +537,7 @@ function Contact({ data }) {
     e.preventDefault();
     setStatus('sending');
     emailjs.sendForm(
-      'service_vus0eea',
+      'service_f2aqo25',
       'template_915ogjt',
       formRef.current,
       'M-6tzdwk9Kf9X3aG4'
