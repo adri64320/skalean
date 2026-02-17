@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import emailjs from '@emailjs/browser';
 import './index.css';
 
 // ─── Utility Hook ───────────────────────────────────────────────────────────
@@ -536,14 +535,19 @@ function Contact({ data }) {
   const handleSend = (e) => {
     e.preventDefault();
     setStatus('sending');
-    emailjs.sendForm(
-      'service_f2aqo25',
-      'template_915ogjt',
-      formRef.current,
-      'M-6tzdwk9Kf9X3aG4'
-    ).then(() => {
-      setStatus('sent');
-      formRef.current.reset();
+    const formData = new FormData(formRef.current);
+    formData.append('form-name', 'contact');
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString(),
+    }).then((res) => {
+      if (res.ok) {
+        setStatus('sent');
+        formRef.current.reset();
+      } else {
+        setStatus('error');
+      }
       setTimeout(() => setStatus('idle'), 4000);
     }).catch(() => {
       setStatus('error');
@@ -576,7 +580,9 @@ function Contact({ data }) {
         </div>
 
         {/* Form */}
-        <form ref={formRef} onSubmit={handleSend} style={{ opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(30px)', transition: 'all 0.7s ease 0.2s' }}>
+        <form ref={formRef} onSubmit={handleSend} name="contact" style={{ opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(30px)', transition: 'all 0.7s ease 0.2s' }}>
+          <input type="hidden" name="form-name" value="contact" />
+          <p style={{ display: 'none' }}><input name="bot-field" /></p>
           <div style={{ marginBottom: 20 }}>
             <label style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: 2, color: 'var(--gold)', textTransform: 'uppercase', display: 'block', marginBottom: 10 }}>Nom</label>
             <input
