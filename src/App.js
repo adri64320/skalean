@@ -536,11 +536,10 @@ function Contact({ data }) {
     e.preventDefault();
     setStatus('sending');
     const formData = new FormData(formRef.current);
-    formData.append('form-name', 'contact');
-    fetch('/', {
+    fetch('https://formsubmit.co/ajax/' + data.company.email, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString(),
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(Object.fromEntries(formData)),
     }).then((res) => {
       if (res.ok) {
         setStatus('sent');
@@ -580,9 +579,9 @@ function Contact({ data }) {
         </div>
 
         {/* Form */}
-        <form ref={formRef} onSubmit={handleSend} name="contact" style={{ opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(30px)', transition: 'all 0.7s ease 0.2s' }}>
-          <input type="hidden" name="form-name" value="contact" />
-          <p style={{ display: 'none' }}><input name="bot-field" /></p>
+        <form ref={formRef} onSubmit={handleSend} style={{ opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(30px)', transition: 'all 0.7s ease 0.2s' }}>
+          <input type="hidden" name="_subject" value="Nouveau message Skalean" />
+          <input type="hidden" name="_captcha" value="false" />
           <div style={{ marginBottom: 20 }}>
             <label style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: 2, color: 'var(--gold)', textTransform: 'uppercase', display: 'block', marginBottom: 10 }}>Nom</label>
             <input
