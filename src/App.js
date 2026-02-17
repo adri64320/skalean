@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import './index.css';
 
 // ─── Utility Hook ───────────────────────────────────────────────────────────
@@ -530,15 +531,29 @@ function Testimonials({ data }) {
 function Contact({ data }) {
   const [ref, inView] = useInView();
   const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
 
   const handleSend = () => {
     if (!form.name || !form.email || !form.message) return;
-    const subject = encodeURIComponent(`Contact de ${form.name} via Skalean`);
-    const body = encodeURIComponent(`Nom: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`);
-    window.location.href = `mailto:${data.company.email}?subject=${subject}&body=${body}`;
-    setSent(true);
-    setTimeout(() => setSent(false), 3000);
+    setStatus('sending');
+    emailjs.send(
+      'service_skalean',
+      'template_skalean',
+      {
+        from_name: form.name,
+        from_email: form.email,
+        message: form.message,
+        to_email: data.company.email,
+      },
+      'YOUR_PUBLIC_KEY'
+    ).then(() => {
+      setStatus('sent');
+      setForm({ name: '', email: '', message: '' });
+      setTimeout(() => setStatus('idle'), 4000);
+    }).catch(() => {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 4000);
+    });
   };
 
   return (
@@ -615,7 +630,8 @@ function Contact({ data }) {
           }}
             onMouseEnter={e => e.currentTarget.style.boxShadow = '0 0 60px rgba(26,138,74,0.35)'}
             onMouseLeave={e => e.currentTarget.style.boxShadow = '0 0 40px rgba(26,138,74,0.15)'}
-          >{sent ? '✓ Message préparé !' : 'Envoyer le message'}</button>
+          disabled={status === 'sending'}
+          >{status === 'sending' ? 'Envoi en cours...' : status === 'sent' ? '✓ Message envoyé !' : status === 'error' ? 'Erreur, réessayez' : 'Envoyer le message'}</button>
         </div>
 
         {/* Contact info */}
