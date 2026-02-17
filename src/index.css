@@ -5,16 +5,16 @@
 }
 
 :root {
-  --bg: #07070c;
-  --bg2: #0e0e18;
-  --bg3: #13131f;
-  --gold: #c9a84c;
-  --gold-light: #e8c97a;
-  --gold-dim: rgba(201,168,76,0.15);
-  --white: #f0ede8;
-  --white-dim: rgba(240,237,232,0.55);
-  --white-faint: rgba(240,237,232,0.1);
-  --border: rgba(201,168,76,0.18);
+  --bg: #ffffff;
+  --bg2: #f5f7f5;
+  --bg3: #eef2ee;
+  --gold: #1a8a4a;
+  --gold-light: #25b865;
+  --gold-dim: rgba(26,138,74,0.12);
+  --white: #1a1a2e;
+  --white-dim: rgba(26,26,46,0.6);
+  --white-faint: rgba(26,26,46,0.08);
+  --border: rgba(26,138,74,0.18);
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Outfit', sans-serif;
   --font-mono: 'DM Mono', monospace;
@@ -46,7 +46,7 @@ body {
   background: var(--bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
+  background: var(--gold);
   border-radius: 2px;
 }
 
