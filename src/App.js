@@ -530,25 +530,20 @@ function Testimonials({ data }) {
 // ─── Contact ─────────────────────────────────────────────────────────────────
 function Contact({ data }) {
   const [ref, inView] = useInView();
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const formRef = useRef(null);
   const [status, setStatus] = useState('idle'); // idle | sending | sent | error
 
-  const handleSend = () => {
-    if (!form.name || !form.email || !form.message) return;
+  const handleSend = (e) => {
+    e.preventDefault();
     setStatus('sending');
-    emailjs.send(
+    emailjs.sendForm(
       'service_vus0eea',
       'template_915ogjt',
-      {
-        from_name: form.name,
-        from_email: form.email,
-        message: form.message,
-        to_email: data.company.email,
-      },
+      formRef.current,
       'M-6tzdwk9Kf9X3aG4'
     ).then(() => {
       setStatus('sent');
-      setForm({ name: '', email: '', message: '' });
+      formRef.current.reset();
       setTimeout(() => setStatus('idle'), 4000);
     }).catch(() => {
       setStatus('error');
@@ -581,45 +576,51 @@ function Contact({ data }) {
         </div>
 
         {/* Form */}
-        <div style={{ opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(30px)', transition: 'all 0.7s ease 0.2s' }}>
-          {['name', 'email', 'message'].map((field, i) => (
-            <div key={field} style={{ marginBottom: 20 }}>
-              <label style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: 2, color: 'var(--gold)', textTransform: 'uppercase', display: 'block', marginBottom: 10 }}>
-                {field === 'name' ? 'Nom' : field === 'email' ? 'Email' : 'Message'}
-              </label>
-              {field !== 'message' ? (
-                <input
-                  type={field === 'email' ? 'email' : 'text'}
-                  value={form[field]}
-                  onChange={e => setForm({ ...form, [field]: e.target.value })}
-                  style={{
-                    width: '100%', background: 'var(--bg2)', border: '1px solid var(--border)',
-                    color: 'var(--white)', fontFamily: 'var(--font-body)', fontSize: 15, fontWeight: 300,
-                    padding: '14px 20px', borderRadius: 2, outline: 'none',
-                    transition: 'border-color 0.2s',
-                  }}
-                  onFocus={e => e.target.style.borderColor = 'var(--gold)'}
-                  onBlur={e => e.target.style.borderColor = 'var(--border)'}
-                />
-              ) : (
-                <textarea
-                  rows={6}
-                  value={form[field]}
-                  onChange={e => setForm({ ...form, [field]: e.target.value })}
-                  style={{
-                    width: '100%', background: 'var(--bg2)', border: '1px solid var(--border)',
-                    color: 'var(--white)', fontFamily: 'var(--font-body)', fontSize: 15, fontWeight: 300,
-                    padding: '14px 20px', borderRadius: 2, outline: 'none', resize: 'vertical',
-                    transition: 'border-color 0.2s',
-                  }}
-                  onFocus={e => e.target.style.borderColor = 'var(--gold)'}
-                  onBlur={e => e.target.style.borderColor = 'var(--border)'}
-                />
-              )}
-            </div>
-          ))}
+        <form ref={formRef} onSubmit={handleSend} style={{ opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(30px)', transition: 'all 0.7s ease 0.2s' }}>
+          <div style={{ marginBottom: 20 }}>
+            <label style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: 2, color: 'var(--gold)', textTransform: 'uppercase', display: 'block', marginBottom: 10 }}>Nom</label>
+            <input
+              type="text" name="from_name" required
+              style={{
+                width: '100%', background: 'var(--bg2)', border: '1px solid var(--border)',
+                color: 'var(--white)', fontFamily: 'var(--font-body)', fontSize: 15, fontWeight: 300,
+                padding: '14px 20px', borderRadius: 2, outline: 'none',
+                transition: 'border-color 0.2s',
+              }}
+              onFocus={e => e.target.style.borderColor = 'var(--gold)'}
+              onBlur={e => e.target.style.borderColor = 'var(--border)'}
+            />
+          </div>
+          <div style={{ marginBottom: 20 }}>
+            <label style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: 2, color: 'var(--gold)', textTransform: 'uppercase', display: 'block', marginBottom: 10 }}>Email</label>
+            <input
+              type="email" name="from_email" required
+              style={{
+                width: '100%', background: 'var(--bg2)', border: '1px solid var(--border)',
+                color: 'var(--white)', fontFamily: 'var(--font-body)', fontSize: 15, fontWeight: 300,
+                padding: '14px 20px', borderRadius: 2, outline: 'none',
+                transition: 'border-color 0.2s',
+              }}
+              onFocus={e => e.target.style.borderColor = 'var(--gold)'}
+              onBlur={e => e.target.style.borderColor = 'var(--border)'}
+            />
+          </div>
+          <div style={{ marginBottom: 20 }}>
+            <label style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: 2, color: 'var(--gold)', textTransform: 'uppercase', display: 'block', marginBottom: 10 }}>Message</label>
+            <textarea
+              rows={6} name="message" required
+              style={{
+                width: '100%', background: 'var(--bg2)', border: '1px solid var(--border)',
+                color: 'var(--white)', fontFamily: 'var(--font-body)', fontSize: 15, fontWeight: 300,
+                padding: '14px 20px', borderRadius: 2, outline: 'none', resize: 'vertical',
+                transition: 'border-color 0.2s',
+              }}
+              onFocus={e => e.target.style.borderColor = 'var(--gold)'}
+              onBlur={e => e.target.style.borderColor = 'var(--border)'}
+            />
+          </div>
 
-          <button onClick={handleSend} style={{
+          <button type="submit" style={{
             width: '100%', marginTop: 16,
             background: 'linear-gradient(135deg, #1a8a4a, #136b38)',
             border: 'none', color: '#ffffff', cursor: 'pointer',
@@ -632,7 +633,7 @@ function Contact({ data }) {
             onMouseLeave={e => e.currentTarget.style.boxShadow = '0 0 40px rgba(26,138,74,0.15)'}
           disabled={status === 'sending'}
           >{status === 'sending' ? 'Envoi en cours...' : status === 'sent' ? '✓ Message envoyé !' : status === 'error' ? 'Erreur, réessayez' : 'Envoyer le message'}</button>
-        </div>
+        </form>
 
         {/* Contact info */}
         <div style={{
