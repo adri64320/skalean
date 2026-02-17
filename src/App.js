@@ -537,15 +537,15 @@ function Contact({ data }) {
     if (!form.name || !form.email || !form.message) return;
     setStatus('sending');
     emailjs.send(
-      'service_skalean',
-      'template_skalean',
+      'service_vus0eea',
+      'template_915ogjt',
       {
         from_name: form.name,
         from_email: form.email,
         message: form.message,
         to_email: data.company.email,
       },
-      'YOUR_PUBLIC_KEY'
+      'M-6tzdwk9Kf9X3aG4'
     ).then(() => {
       setStatus('sent');
       setForm({ name: '', email: '', message: '' });
