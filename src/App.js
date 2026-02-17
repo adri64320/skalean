@@ -35,88 +35,97 @@ function Navbar({ data }) {
   };
 
   return (
-    <nav style={{
-      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
-      padding: '0 4vw',
-      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-      height: 72,
-      background: scrolled ? 'rgba(255,255,255,0.92)' : 'transparent',
-      backdropFilter: scrolled ? 'blur(20px)' : 'none',
-      borderBottom: scrolled ? '1px solid rgba(26,138,74,0.12)' : '1px solid transparent',
-      transition: 'all 0.4s ease',
-    }}>
-      {/* Logo */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer' }} onClick={() => scrollTo('Accueil')}>
-        <div style={{
-          width: 32, height: 32,
-          background: 'linear-gradient(135deg, #1a8a4a, #136b38)',
-          clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)',
-          flexShrink: 0,
-        }} />
-        <span style={{
-          fontFamily: 'var(--font-display)',
-          fontSize: 24, fontWeight: 600, letterSpacing: 3,
-          color: 'var(--white)',
-        }}>SKALEAN</span>
-      </div>
+    <>
+      <nav style={{
+        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
+        padding: '0 4vw',
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        height: 72,
+        background: scrolled ? 'rgba(255,255,255,0.92)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(20px)' : 'none',
+        borderBottom: scrolled ? '1px solid rgba(26,138,74,0.12)' : '1px solid transparent',
+        transition: 'all 0.4s ease',
+      }}>
+        {/* Logo */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer' }} onClick={() => scrollTo('Accueil')}>
+          <div style={{
+            width: 32, height: 32,
+            background: 'linear-gradient(135deg, #1a8a4a, #136b38)',
+            clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)',
+            flexShrink: 0,
+          }} />
+          <span style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: 24, fontWeight: 600, letterSpacing: 3,
+            color: 'var(--white)',
+          }}>SKALEAN</span>
+        </div>
 
-      {/* Desktop Nav */}
-      <div style={{ display: 'flex', gap: 36, alignItems: 'center' }} className="desktop-nav">
-        {data.nav.map(item => (
-          <button key={item} onClick={() => scrollTo(item)} style={{
-            background: 'none', border: 'none', cursor: 'pointer',
-            fontFamily: 'var(--font-body)', fontSize: 13, fontWeight: 400,
-            color: 'var(--white-dim)', letterSpacing: 1.5, textTransform: 'uppercase',
-            transition: 'color 0.2s',
-            padding: '4px 0',
+        {/* Desktop Nav */}
+        <div style={{ display: 'flex', gap: 36, alignItems: 'center' }} className="desktop-nav">
+          {data.nav.map(item => (
+            <button key={item} onClick={() => scrollTo(item)} style={{
+              background: 'none', border: 'none', cursor: 'pointer',
+              fontFamily: 'var(--font-body)', fontSize: 13, fontWeight: 400,
+              color: 'var(--white-dim)', letterSpacing: 1.5, textTransform: 'uppercase',
+              transition: 'color 0.2s',
+              padding: '4px 0',
+            }}
+              onMouseEnter={e => e.target.style.color = 'var(--gold)'}
+              onMouseLeave={e => e.target.style.color = 'var(--white-dim)'}
+            >{item}</button>
+          ))}
+          <button onClick={() => scrollTo('Contact')} style={{
+            background: 'none', border: '1px solid var(--gold)',
+            color: 'var(--gold)', cursor: 'pointer',
+            fontFamily: 'var(--font-body)', fontSize: 12, fontWeight: 400,
+            letterSpacing: 2, textTransform: 'uppercase',
+            padding: '8px 20px', borderRadius: 2,
+            transition: 'all 0.2s',
           }}
-            onMouseEnter={e => e.target.style.color = 'var(--gold)'}
-            onMouseLeave={e => e.target.style.color = 'var(--white-dim)'}
-          >{item}</button>
-        ))}
-        <button onClick={() => scrollTo('Contact')} style={{
-          background: 'none', border: '1px solid var(--gold)',
-          color: 'var(--gold)', cursor: 'pointer',
-          fontFamily: 'var(--font-body)', fontSize: 12, fontWeight: 400,
-          letterSpacing: 2, textTransform: 'uppercase',
-          padding: '8px 20px', borderRadius: 2,
-          transition: 'all 0.2s',
-        }}
-          onMouseEnter={e => { e.target.style.background = 'var(--gold)'; e.target.style.color = 'var(--bg)'; }}
-          onMouseLeave={e => { e.target.style.background = 'none'; e.target.style.color = 'var(--gold)'; }}
-        >Contact</button>
-      </div>
+            onMouseEnter={e => { e.target.style.background = 'var(--gold)'; e.target.style.color = 'var(--bg)'; }}
+            onMouseLeave={e => { e.target.style.background = 'none'; e.target.style.color = 'var(--gold)'; }}
+          >Contact</button>
+        </div>
 
-      {/* Mobile burger */}
-      <button onClick={() => setMenuOpen(!menuOpen)} style={{
-        display: 'none', background: 'none', border: 'none', cursor: 'pointer',
-        flexDirection: 'column', gap: 5, padding: 8,
-        position: 'relative', zIndex: 1001,
-      }} className="burger" aria-label="Menu">
-        <span style={{
-          display: 'block', width: 24, height: 2, background: 'var(--gold)', borderRadius: 1,
-          transition: 'all 0.3s ease',
-          transform: menuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none',
-        }} />
-        <span style={{
-          display: 'block', width: 24, height: 2, background: 'var(--gold)', borderRadius: 1,
-          transition: 'all 0.3s ease',
-          opacity: menuOpen ? 0 : 1,
-        }} />
-        <span style={{
-          display: 'block', width: 24, height: 2, background: 'var(--gold)', borderRadius: 1,
-          transition: 'all 0.3s ease',
-          transform: menuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none',
-        }} />
-      </button>
+        {/* Mobile burger */}
+        <button onClick={() => setMenuOpen(!menuOpen)} style={{
+          display: 'none', background: 'none', border: 'none', cursor: 'pointer',
+          flexDirection: 'column', gap: 5, padding: 8,
+          position: 'relative', zIndex: 1001,
+        }} className="burger" aria-label="Menu">
+          <span style={{
+            display: 'block', width: 24, height: 2, background: 'var(--gold)', borderRadius: 1,
+            transition: 'all 0.3s ease',
+            transform: menuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none',
+          }} />
+          <span style={{
+            display: 'block', width: 24, height: 2, background: 'var(--gold)', borderRadius: 1,
+            transition: 'all 0.3s ease',
+            opacity: menuOpen ? 0 : 1,
+          }} />
+          <span style={{
+            display: 'block', width: 24, height: 2, background: 'var(--gold)', borderRadius: 1,
+            transition: 'all 0.3s ease',
+            transform: menuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none',
+          }} />
+        </button>
 
-      {/* Mobile menu */}
+        <style>{`
+          @media (max-width: 768px) {
+            .desktop-nav { display: none !important; }
+            .burger { display: flex !important; }
+          }
+        `}</style>
+      </nav>
+
+      {/* Mobile menu - outside nav to avoid backdrop-filter containing block issue */}
       {menuOpen && (
         <div style={{
           position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
           background: 'rgba(255,255,255,0.98)', backdropFilter: 'blur(20px)',
           display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-          gap: 40, zIndex: 1000,
+          gap: 40, zIndex: 999,
         }}>
           {data.nav.map(item => (
             <button key={item} onClick={() => scrollTo(item)} style={{
@@ -127,13 +136,7 @@ function Navbar({ data }) {
           ))}
         </div>
       )}
-      <style>{`
-        @media (max-width: 768px) {
-          .desktop-nav { display: none !important; }
-          .burger { display: flex !important; }
-        }
-      `}</style>
-    </nav>
+    </>
   );
 }
 
