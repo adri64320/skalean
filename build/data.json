@@ -1,0 +1,99 @@
+{
+  "company": {
+    "name": "Skalean",
+    "tagline": "Conseil & Ingénierie Logicielle",
+    "description": "Nous accompagnons les entreprises dans leur transformation digitale avec une expertise pointue en conseil stratégique et développement de solutions logicielles sur mesure.",
+    "email": "contact@skalean.com",
+    "phone": "+33 1 00 00 00 00",
+    "location": "Paris, France"
+  },
+  "nav": ["Accueil", "Services", "Expertises", "À propos", "Contact"],
+  "hero": {
+    "title": "Transformer l'ambition",
+    "subtitle": "en excellence",
+    "description": "Cabinet de conseil et d'ingénierie logicielle, Skalean accompagne les organisations les plus exigeantes dans la conception et la réalisation de leurs projets technologiques critiques.",
+    "cta": "Découvrir nos services",
+    "cta2": "Nous contacter"
+  },
+  "stats": [
+    { "value": "120+", "label": "Projets livrés" },
+    { "value": "98%", "label": "Satisfaction client" },
+    { "value": "8 ans", "label": "D'expertise" },
+    { "value": "40+", "label": "Experts mobilisables" }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "icon": "◆",
+      "title": "Conseil Stratégique",
+      "description": "Nous analysons vos enjeux métiers et technologiques pour définir une feuille de route claire, alignée sur vos objectifs de croissance et de transformation.",
+      "items": ["Audit de maturité digitale", "Roadmap technologique", "Gouvernance IT", "Conduite du changement"]
+    },
+    {
+      "id": 2,
+      "icon": "▲",
+      "title": "Développement Logiciel",
+      "description": "Conception et réalisation de solutions logicielles robustes, scalables et maintenables, en utilisant les meilleures pratiques de l'ingénierie moderne.",
+      "items": ["Applications web & mobile", "APIs & microservices", "Architecture cloud-native", "DevOps & CI/CD"]
+    },
+    {
+      "id": 3,
+      "icon": "●",
+      "title": "Transformation Digitale",
+      "description": "Accompagnement end-to-end de vos projets de modernisation pour maximiser la valeur de vos investissements technologiques.",
+      "items": ["Migration cloud", "Modernisation applicative", "Intégration de systèmes", "Automatisation des processus"]
+    },
+    {
+      "id": 4,
+      "icon": "■",
+      "title": "Data & IA",
+      "description": "Valorisation de vos données et implémentation de solutions d'intelligence artificielle pour créer un avantage compétitif durable.",
+      "items": ["Architecture data", "Machine Learning", "LLM & IA générative", "Tableaux de bord analytiques"]
+    }
+  ],
+  "expertises": [
+    "React / Angular / Vue.js",
+    "Python / FastAPI / Django",
+    "Node.js / TypeScript",
+    "PostgreSQL / MongoDB",
+    "Docker / Kubernetes",
+    "AWS / GCP / Azure",
+    "Architecture microservices",
+    "Domain-Driven Design"
+  ],
+  "about": {
+    "title": "Une équipe d'experts passionnés",
+    "description": "Fondée par des ingénieurs et consultants issus des meilleures ESN et cabinets de conseil, Skalean a été créée avec une conviction forte : allier rigueur méthodologique et excellence technique pour délivrer de la valeur réelle.",
+    "values": [
+      {
+        "title": "Excellence",
+        "description": "Chaque ligne de code, chaque recommandation est le fruit d'une exigence constante."
+      },
+      {
+        "title": "Partenariat",
+        "description": "Nous nous engageons comme si c'était notre propre entreprise."
+      },
+      {
+        "title": "Innovation",
+        "description": "Nous explorons les technologies émergentes pour vous donner un temps d'avance."
+      }
+    ]
+  },
+  "testimonials": [
+    {
+      "quote": "Skalean a su comprendre nos enjeux métiers complexes et les traduire en une architecture technique solide. Un partenariat exemplaire.",
+      "author": "Marie D.",
+      "role": "DSI, Groupe Financier"
+    },
+    {
+      "quote": "La qualité de livraison et la transparence de l'équipe tout au long du projet ont dépassé nos attentes.",
+      "author": "Thomas R.",
+      "role": "CTO, Scale-up SaaS"
+    },
+    {
+      "quote": "Leur expertise en architecture cloud-native nous a permis de diviser par 3 nos coûts d'infrastructure.",
+      "author": "Sophie L.",
+      "role": "VP Engineering, Fintech"
+    }
+  ]
+}
