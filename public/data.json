@@ -7,7 +7,7 @@
     "phone": "+33 1 00 00 00 00",
     "location": "Paris, France"
   },
-  "nav": ["Accueil", "Services", "Expertises", "À propos", "Contact"],
+  "nav": ["Accueil", "Nos Services", "Expertises", "À propos", "Contact"],
   "hero": {
     "title": "Transformer l'ambition",
     "subtitle": "en excellence",
