@@ -1,99 +1,99 @@
 {
   "company": {
     "name": "Skalean",
-    "tagline": "Conseil & Ingénierie Logicielle",
-    "description": "Nous accompagnons les entreprises dans leur transformation digitale avec une expertise pointue en conseil stratégique et développement de solutions logicielles sur mesure.",
+    "tagline": "Cloud-powered. AI-driven. Loved by users.",
+    "description": "Skalean is a cloud-native, AI-powered platform that automates workflows, eliminates operational friction, and helps companies scale efficiently — with intelligence built into every layer and a user experience that people actually love.",
+    "description": "Skalean is currently in private beta. Join our early access waitlist and be among the first to automate your workflows, harness AI-driven insights, and experience a cloud platform your teams will actually love — from day one.",
     "email": "contact@skalean.fr",
-    "phone": "+33 1 00 00 00 00",
+    "phone": "+33 7 66 59 32 24",
     "location": "Paris, France"
   },
-  "nav": ["Accueil", "Services", "Expertises", "À propos", "Contact"],
+  "nav": ["Home", "Product", "Features", "About", "Contact"],
   "hero": {
-    "title": "Transformer l'ambition",
-    "subtitle": "en excellence",
-    "description": "Cabinet de conseil et d'ingénierie logicielle, Skalean accompagne les organisations les plus exigeantes dans la conception et la réalisation de leurs projets technologiques critiques.",
-    "cta": "Découvrir nos services",
-    "cta2": "Nous contacter"
+    "title": "The Cloud platform your teams",
+    "subtitle": "will actually want to use",
+    "description": "Skalean combines cloud infrastructure and artificial intelligence to automate your workflows and optimize your operations — wrapped in an experience so intuitive, your teams will wonder how they ever worked without it.",
+    "cta": "Get started",
+    "cta2": "See how it works"
   },
   "stats": [
-    { "value": "120+", "label": "Projets livrés" },
-    { "value": "98%", "label": "Satisfaction client" },
-    { "value": "8 ans", "label": "D'expertise" },
-    { "value": "40+", "label": "Experts mobilisables" }
+    { "value": "AI-first", "label": "Intelligence embedded in every activity" },
+    { "value": "Cloud-native", "label": "Infinitely scalable, zero infrastructure overhead" },
+    { "value": "10x", "label": "Faster process execution with AI automation" },
+    { "value": "❤️ Day 1", "label": "Delightful from the very first click" }
   ],
   "services": [
     {
       "id": 1,
       "icon": "◆",
-      "title": "Conseil Stratégique",
-      "description": "Nous analysons vos enjeux métiers et technologiques pour définir une feuille de route claire, alignée sur vos objectifs de croissance et de transformation.",
-      "items": ["Audit de maturité digitale", "Roadmap technologique", "Gouvernance IT", "Conduite du changement"]
+      "title": "AI-Powered Activity Automation",
+      "description": "WLet AI do the heavy lifting. Skalean's intelligent engine learns your business processes, automates repetitive tasks, and routes work to the right people at the right time — all in the cloud, all in real time, all with a clarity that makes complex operations feel effortless.",
+      "items": ["AI-driven task routing & prioritization", "Visual workflow builder with smart suggestions", "Automated approvals & escalations", "Real-time cloud monitoring & alerts"]
     },
     {
       "id": 2,
       "icon": "▲",
-      "title": "Développement Logiciel",
-      "description": "Conception et réalisation de solutions logicielles robustes, scalables et maintenables, en utilisant les meilleures pratiques de l'ingénierie moderne.",
-      "items": ["Applications web & mobile", "APIs & microservices", "Architecture cloud-native", "DevOps & CI/CD"]
+      "title": "Cloud-Native Operations",
+      "description": "Built entirely in the cloud, Skalean gives your teams a single source of truth — accessible from anywhere, scaling instantly with your growth, with enterprise-grade security and an interface clean enough that anyone can pick it up on day one.",
+      "items": ["Always-on cloud infrastructure", "Instant scalability across teams & geographies", "Enterprise security & compliance", "Seamless integrations with your existing tools"]
     },
     {
       "id": 3,
       "icon": "●",
-      "title": "Transformation Digitale",
-      "description": "Accompagnement end-to-end de vos projets de modernisation pour maximiser la valeur de vos investissements technologiques.",
-      "items": ["Migration cloud", "Modernisation applicative", "Intégration de systèmes", "Automatisation des processus"]
+      "title": "Intelligent Process Optimization",
+      "description": "Skalean's AI continuously analyzes how your organization works — surfacing bottlenecks, predicting delays, and recommending improvements before problems happen. Delivered through dashboards so clear, insights feel obvious rather than overwhelming.",
+      "items": ["AI bottleneck detection & resolution", "Predictive process analytics", "Smart workload balancing across teams", "Continuous learning from your operational data"]
     },
     {
       "id": 4,
       "icon": "■",
-      "title": "Data & IA",
-      "description": "Valorisation de vos données et implémentation de solutions d'intelligence artificielle pour créer un avantage compétitif durable.",
-      "items": ["Architecture data", "Machine Learning", "LLM & IA générative", "Tableaux de bord analytiques"]
+      "title": "Delightful by Design",
+      "description": "Great software should feel good to use. Every screen, every interaction, every notification in Skalean is crafted with care — combining the power of AI and cloud with an experience that is intuitive, beautiful, and genuinely enjoyable for the people using it every day.",
+      "items": ["Thoughtfully designed, clutter-free UI", "AI-personalized dashboards for every role", "Natural language commands & smart search", "Mobile-first, accessible from any device"]
     }
   ],
   "expertises": [
-    "React / Angular / Vue.js",
-    "Python / FastAPI / Django",
-    "Node.js / TypeScript",
-    "PostgreSQL / MongoDB",
-    "Docker / Kubernetes",
-    "AWS / GCP / Azure",
-    "Architecture microservices",
-    "Domain-Driven Design"
+    "Generative AI & LLMs",
+    "AI workflow automation",
+    "Cloud-native SaaS architecture",
+    "Real-time data processing",
+    "Predictive analytics",
+    "Natural language interfaces",
+    "API & third-party integrations",
+    "Role-based access & cloud security",
+    "Scalable multi-tenant infrastructure",
+    "Human-centered UX design"
   ],
   "about": {
-    "title": "Une équipe d'experts passionnés",
-    "description": "Fondée par des ingénieurs et consultants issus des meilleures ESN et cabinets de conseil, Skalean a été créée avec une conviction forte : allier rigueur méthodologique et excellence technique pour délivrer de la valeur réelle.",
+    "title": "Built on cloud. Powered by AI. Designed to delight.",
+    "description": "Skalean was founded by engineers and AI specialists who saw firsthand how companies hit an invisible ceiling as they grow — not because of a lack of talent or ambition, but because their tools couldn't keep up. And too often, those tools were not just slow — they were painful to use. We built Skalean to break that ceiling: a cloud-native platform with AI at its core and a user experience that makes powerful technology feel effortless, from day one.",
     "values": [
       {
-        "title": "Excellence",
-        "description": "Chaque ligne de code, chaque recommandation est le fruit d'une exigence constante."
+        "title": "AI that creates real impact",
+        "description": "Our AI isn't cosmetic — it's operational. It learns from your data, anticipates your needs, and automates the work that slows your teams down."
       },
       {
-        "title": "Partenariat",
-        "description": "Nous nous engageons comme si c'était notre propre entreprise."
+        "title": "Cloud without limits",
+        "description": "We built Skalean cloud-native from day one — meaning infinite scalability, global availability, and no infrastructure headaches, ever."
       },
       {
-        "title": "Innovation",
-        "description": "Nous explorons les technologies émergentes pour vous donner un temps d'avance."
+        "title": "Experience that delights",
+        "description": "We believe software should spark joy, not frustration. Every pixel, every flow, every interaction is designed to feel natural, fast, and genuinely satisfying to use."
       }
     ]
   },
-  "testimonials": [
+  "early access: Be the first to experience Skalean": [
     {
-      "quote": "Skalean a su comprendre nos enjeux métiers complexes et les traduire en une architecture technique solide. Un partenariat exemplaire.",
-      "author": "Marie D.",
-      "role": "DSI, Groupe Financier"
+      "description": "Skalean is currently in private beta. Join our early access waitlist and be among the first to automate your workflows, harness AI-driven insights, and experience a cloud platform your teams will actually love — from day one.",
+      "label": "Priority access"
     },
     {
-      "quote": "La qualité de livraison et la transparence de l'équipe tout au long du projet ont dépassé nos attentes.",
-      "author": "Thomas R.",
-      "role": "CTO, Scale-up SaaS"
+      "description": "Your feedback directly influences what we build next.",
+      "label": "Shape the product"
     },
     {
-      "quote": "Leur expertise en architecture cloud-native nous a permis de diviser par 3 nos coûts d'infrastructure.",
-      "author": "Sophie L.",
-      "role": "VP Engineering, Fintech"
+      "description": "Instant onboarding, no setup, no infrastructure to manage.",
+      "label": "Full cloud access"
     }
   ]
 }
