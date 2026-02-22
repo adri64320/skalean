@@ -27,8 +27,8 @@ function Navbar({ data }) {
   }, []);
 
   const scrollTo = (section) => {
-    const id = section.toLowerCase().replace('à ', '').replace(' ', '-');
-    const map = { 'accueil': 'hero', 'services': 'services', 'expertises': 'expertises', 'propos': 'about', 'contact': 'contact' };
+    const id = section.toLowerCase();
+    const map = { 'home': 'hero', 'product': 'services', 'features': 'expertises', 'about': 'about', 'contact': 'contact' };
     const el = document.getElementById(map[id] || id);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
     setMenuOpen(false);
@@ -47,23 +47,32 @@ function Navbar({ data }) {
         transition: 'all 0.4s ease',
       }}>
         {/* Logo */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer' }} onClick={() => scrollTo('Accueil')}>
+        <div style={{ cursor: 'pointer' }} onClick={() => scrollTo('Accueil')}>
           <div style={{
-            width: 32, height: 32,
-            background: 'linear-gradient(135deg, #1a8a4a, #136b38)',
-            clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)',
-            flexShrink: 0,
-          }} />
-          <span style={{
-            fontFamily: 'var(--font-display)',
-            fontSize: 24, fontWeight: 600, letterSpacing: 3,
-            color: 'var(--white)',
-          }}>SKALEAN</span>
+            background: scrolled ? 'transparent' : 'rgba(255,255,255,0.08)',
+            backdropFilter: scrolled ? 'none' : 'blur(16px)',
+            border: scrolled ? 'none' : '1px solid rgba(255,255,255,0.14)',
+            borderRadius: 12,
+            padding: scrolled ? 0 : '4px 10px',
+            transition: 'all 0.4s ease',
+          }}>
+            <img
+              src="/logo.png"
+              alt="Skalean"
+              style={{
+                height: 42,
+                display: 'block',
+                borderRadius: scrolled ? 8 : 6,
+                boxShadow: scrolled ? '0 1px 8px rgba(0,0,0,0.08)' : 'none',
+                transition: 'all 0.4s ease',
+              }}
+            />
+          </div>
         </div>
 
         {/* Desktop Nav */}
         <div style={{ display: 'flex', gap: 36, alignItems: 'center' }} className="desktop-nav">
-          {data.nav.map(item => (
+          {data.nav.filter(item => item !== 'Contact').map(item => (
             <button key={item} onClick={() => scrollTo(item)} style={{
               background: 'none', border: 'none', cursor: 'pointer',
               fontFamily: 'var(--font-body)', fontSize: 13, fontWeight: 400,
@@ -306,10 +315,10 @@ function Services({ data }) {
         <div style={{ marginBottom: 80, opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(30px)', transition: 'all 0.7s ease' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 24 }}>
             <div style={{ width: 40, height: 1, background: 'var(--gold)' }} />
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: 4, color: 'var(--gold)', textTransform: 'uppercase' }}>Nos Services</span>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: 4, color: 'var(--gold)', textTransform: 'uppercase' }}>Our Services</span>
           </div>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(36px, 5vw, 72px)', fontWeight: 300, lineHeight: 1.1, color: 'var(--white)', maxWidth: 600 }}>
-            Des solutions <em style={{ fontStyle: 'italic', fontWeight: 600 }}>complètes</em> pour vos défis
+            Complete <em style={{ fontStyle: 'italic', fontWeight: 600 }}>solutions</em> for your challenges
           </h2>
         </div>
 
@@ -383,13 +392,13 @@ function Expertises({ data }) {
           <div style={{ opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateX(-40px)', transition: 'all 0.8s ease' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 24 }}>
               <div style={{ width: 40, height: 1, background: 'var(--gold)' }} />
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: 4, color: 'var(--gold)', textTransform: 'uppercase' }}>Stack Technique</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: 4, color: 'var(--gold)', textTransform: 'uppercase' }}>Tech Stack</span>
             </div>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(36px, 4vw, 64px)', fontWeight: 300, lineHeight: 1.1, color: 'var(--white)', marginBottom: 24 }}>
-              Maîtrise des <em style={{ fontStyle: 'italic', fontWeight: 600 }}>technologies</em> de pointe
+              Mastery of <em style={{ fontStyle: 'italic', fontWeight: 600 }}>cutting-edge</em> technologies
             </h2>
             <p style={{ color: 'var(--white-dim)', fontSize: 16, lineHeight: 1.9 }}>
-              Nos équipes maîtrisent un large spectre technologique pour vous proposer les solutions les plus adaptées à vos enjeux, sans dépendance à un éditeur ou une technologie.
+              Our teams command a broad technology spectrum to deliver the most adapted solutions for your challenges — with no lock-in to any single vendor or stack.
             </p>
           </div>
 
@@ -438,7 +447,7 @@ function About({ data }) {
         <div style={{ opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(30px)', transition: 'all 0.7s ease', marginBottom: 80 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 24 }}>
             <div style={{ width: 40, height: 1, background: 'var(--gold)' }} />
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: 4, color: 'var(--gold)', textTransform: 'uppercase' }}>À Propos</span>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: 4, color: 'var(--gold)', textTransform: 'uppercase' }}>About</span>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'start' }}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(36px, 4vw, 64px)', fontWeight: 300, lineHeight: 1.1, color: 'var(--white)' }}>
@@ -478,48 +487,42 @@ function About({ data }) {
   );
 }
 
-// ─── Testimonials ────────────────────────────────────────────────────────────
-function Testimonials({ data }) {
+// ─── Early Access ─────────────────────────────────────────────────────────────
+function EarlyAccess({ data }) {
   const [ref, inView] = useInView();
+  const items = data['early access: Be the first to experience Skalean'] || [];
   return (
     <section ref={ref} style={{ padding: '120px 4vw', background: 'var(--bg2)', overflow: 'hidden' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 80, opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(30px)', transition: 'all 0.7s ease' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, marginBottom: 24 }}>
             <div style={{ width: 40, height: 1, background: 'var(--gold)' }} />
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: 4, color: 'var(--gold)', textTransform: 'uppercase' }}>Témoignages</span>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: 4, color: 'var(--gold)', textTransform: 'uppercase' }}>Early Access</span>
             <div style={{ width: 40, height: 1, background: 'var(--gold)' }} />
           </div>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(32px, 4vw, 56px)', fontWeight: 300, color: 'var(--white)' }}>
-            Ce que disent <em style={{ fontStyle: 'italic', fontWeight: 600 }}>nos clients</em>
+            Be the first to <em style={{ fontStyle: 'italic', fontWeight: 600 }}>experience Skalean</em>
           </h2>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
-          {data.testimonials.map((t, i) => (
+          {items.map((item, i) => (
             <div key={i} style={{
               padding: '40px',
               background: 'var(--bg)',
               border: '1px solid var(--border)',
               borderRadius: 2,
-              position: 'relative',
+              borderTop: '2px solid var(--gold)',
               opacity: inView ? 1 : 0,
               transform: inView ? 'none' : 'translateY(30px)',
               transition: `all 0.6s ease ${i * 0.15 + 0.2}s`,
             }}>
-              <div style={{
-                fontFamily: 'var(--font-display)', fontSize: 72, lineHeight: 0.6,
-                color: 'var(--gold)', opacity: 0.3,
-                position: 'absolute', top: 32, right: 32,
-              }}>"</div>
-              <p style={{
-                fontFamily: 'var(--font-display)', fontSize: 18, fontStyle: 'italic',
-                color: 'var(--white)', lineHeight: 1.7, marginBottom: 32,
-              }}>{t.quote}</p>
-              <div>
-                <div style={{ fontWeight: 500, fontSize: 14, color: 'var(--gold)' }}>{t.author}</div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--white-dim)', letterSpacing: 1, marginTop: 4 }}>{t.role}</div>
-              </div>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: 3, color: 'var(--gold)', textTransform: 'uppercase', marginBottom: 20 }}>0{i + 1}</div>
+              <h3 style={{
+                fontFamily: 'var(--font-display)', fontSize: 24, fontWeight: 400,
+                color: 'var(--white)', lineHeight: 1.3, marginBottom: 16,
+              }}>{item.label}</h3>
+              <p style={{ color: 'var(--white-dim)', fontSize: 15, lineHeight: 1.8 }}>{item.description}</p>
             </div>
           ))}
         </div>
@@ -574,19 +577,19 @@ function Contact({ data }) {
             <div style={{ width: 40, height: 1, background: 'var(--gold)' }} />
           </div>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(36px, 5vw, 72px)', fontWeight: 300, color: 'var(--white)', lineHeight: 1.1, marginBottom: 20 }}>
-            Parlons de votre <em style={{ fontStyle: 'italic', fontWeight: 600 }}>projet</em>
+            Let's talk about your <em style={{ fontStyle: 'italic', fontWeight: 600 }}>project</em>
           </h2>
           <p style={{ color: 'var(--white-dim)', fontSize: 16 }}>
-            Nous répondons sous 24h à toutes les demandes.
+            We respond to all inquiries within 24 hours.
           </p>
         </div>
 
         {/* Form */}
         <form ref={formRef} onSubmit={handleSend} style={{ opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(30px)', transition: 'all 0.7s ease 0.2s' }}>
-          <input type="hidden" name="_subject" value="Nouveau message Skalean" />
+          <input type="hidden" name="_subject" value="New message from Skalean" />
           <input type="hidden" name="_captcha" value="false" />
           <div style={{ marginBottom: 20 }}>
-            <label style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: 2, color: 'var(--gold)', textTransform: 'uppercase', display: 'block', marginBottom: 10 }}>Nom</label>
+            <label style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: 2, color: 'var(--gold)', textTransform: 'uppercase', display: 'block', marginBottom: 10 }}>Name</label>
             <input
               type="text" name="from_name" required
               style={{
@@ -640,7 +643,7 @@ function Contact({ data }) {
             onMouseEnter={e => e.currentTarget.style.boxShadow = '0 0 60px rgba(26,138,74,0.35)'}
             onMouseLeave={e => e.currentTarget.style.boxShadow = '0 0 40px rgba(26,138,74,0.15)'}
           disabled={status === 'sending'}
-          >{status === 'sending' ? 'Envoi en cours...' : status === 'sent' ? '✓ Message envoyé !' : status === 'error' ? 'Erreur, réessayez' : 'Envoyer le message'}</button>
+          >{status === 'sending' ? 'Sending...' : status === 'sent' ? '✓ Message sent!' : status === 'error' ? 'Error, please retry' : 'Send message'}</button>
         </form>
 
         {/* Contact info */}
@@ -650,8 +653,8 @@ function Contact({ data }) {
         }}>
           {[
             { label: 'Email', value: data.company.email },
-            { label: 'Téléphone', value: data.company.phone },
-            { label: 'Adresse', value: data.company.location },
+            { label: 'Phone', value: data.company.phone },
+            { label: 'Location', value: data.company.location },
           ].map((item, i) => (
             <div key={i} style={{ textAlign: 'center' }}>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: 3, color: 'var(--gold)', textTransform: 'uppercase', marginBottom: 8 }}>{item.label}</div>
@@ -674,12 +677,16 @@ function Footer({ data }) {
       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       flexWrap: 'wrap', gap: 16,
     }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-        <div style={{ width: 20, height: 20, background: 'linear-gradient(135deg, #1a8a4a, #136b38)', clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }} />
-        <span style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 600, letterSpacing: 3, color: 'var(--white)' }}>SKALEAN</span>
+      <div style={{
+        background: 'rgba(255,255,255,0.06)',
+        border: '1px solid rgba(255,255,255,0.1)',
+        borderRadius: 10,
+        padding: '4px 10px',
+      }}>
+        <img src="/logo.png" alt="Skalean" style={{ height: 32, display: 'block', borderRadius: 6 }} />
       </div>
       <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--white-dim)', letterSpacing: 1 }}>
-        © {new Date().getFullYear()} Skalean — Tous droits réservés
+        © {new Date().getFullYear()} Skalean — All rights reserved
       </span>
     </footer>
   );
@@ -708,7 +715,7 @@ export default function App() {
     </div>
   );
 
-  if (!data) return <div style={{ color: 'red', padding: 40 }}>Erreur de chargement des données.</div>;
+  if (!data) return <div style={{ color: 'red', padding: 40 }}>Error loading data.</div>;
 
   return (
     <>
@@ -718,7 +725,7 @@ export default function App() {
       <Services data={data} />
       <Expertises data={data} />
       <About data={data} />
-      <Testimonials data={data} />
+      <EarlyAccess data={data} />
       <Contact data={data} />
       <Footer data={data} />
     </>
