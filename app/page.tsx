@@ -5,41 +5,18 @@ import { ArrowDownRight, ArrowRight, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
 
-function ChabLayerLogo({ size = 44, light = false }: { size?: number; light?: boolean }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 44 44" fill="none" aria-hidden="true">
-      <rect x="5" y="30" width="34" height="7" rx="2" fill={light ? 'rgba(247,245,242,0.28)' : '#B8B0A8'} />
-      <rect x="5" y="20" width="34" height="7" rx="2" fill={light ? 'rgba(247,245,242,0.58)' : '#7D746C'} />
-      <rect x="5" y="10" width="34" height="7" rx="2" fill={light ? '#F7F5F2' : '#26221F'} />
-    </svg>
-  )
-}
-
-function PowerCockpitLogo({ size = 44, light = false }: { size?: number; light?: boolean }) {
-  const main = light ? '#F7F5F2' : '#26221F'
-  const track = light ? 'rgba(247,245,242,0.28)' : 'rgba(38,34,31,0.22)'
-  return (
-    <svg width={size} height={size} viewBox="0 0 44 44" fill="none" aria-hidden="true">
-      <path d="M8 33 A15 15 0 1 1 36 33" stroke={track} strokeWidth="3" strokeLinecap="round" />
-      <path d="M8 33 A15 15 0 0 1 29.6 12.4" stroke={main} strokeWidth="3" strokeLinecap="round" />
-      <line x1="22" y1="22" x2="31" y2="13" stroke="#D08A5B" strokeWidth="2.5" strokeLinecap="round" />
-      <circle cx="22" cy="22" r="3" fill={main} />
-    </svg>
-  )
-}
-
-const productLogos = [ChabLayerLogo, PowerCockpitLogo]
+const productMarkSrcs = ['/logo-chablayer-mark.png', '/logo-powercockpit-mark.png']
 
 export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeProduct, setActiveProduct] = useState(0)
-  const ActiveLogo = productLogos[activeProduct]
+  const activeMarkSrc = productMarkSrcs[activeProduct]
 
   return (
     <main className="site-shell">
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Skalean, accueil">
-          <span className="brand-mark" aria-hidden="true"><span /><span /><span /></span>
+          <img src="/logo-skalean-mark.png" alt="" aria-hidden="true" className="brand-img" />
           <span>SKALEAN</span>
         </a>
         <nav className={menuOpen ? 'nav-links is-open' : 'nav-links'} aria-label="Navigation principale">
@@ -68,26 +45,21 @@ export default function Page() {
       <section className="products section-pad" id="product">
         <div className="section-heading"><div><p className="eyebrow">{content.products.eyebrow}</p><h2>{content.products.title}</h2></div><p>{content.products.description}</p></div>
         <div className="product-tabs" role="tablist" aria-label="Produits Skalean">
-          {content.products.items.map((item, i) => {
-            const TabLogo = productLogos[i]
-            return (
-              <button key={item.name} className={activeProduct === i ? 'product-tab active' : 'product-tab'} onClick={() => setActiveProduct(i)} role="tab" aria-selected={activeProduct === i}>
-                <TabLogo size={28} />
-                {item.name}
-                <ArrowRight aria-hidden="true" />
-              </button>
-            )
-          })}
+          {content.products.items.map((item, i) => (
+            <button key={item.name} className={activeProduct === i ? 'product-tab active' : 'product-tab'} onClick={() => setActiveProduct(i)} role="tab" aria-selected={activeProduct === i}>
+              <img src={productMarkSrcs[i]} className="product-tab-logo" alt="" aria-hidden="true" />
+              {item.name}
+              <ArrowRight aria-hidden="true" />
+            </button>
+          ))}
         </div>
         <div className="product-showcase">
           <div className="product-visual">
             <span className="visual-kicker">SKALEAN / 0{activeProduct + 1}</span>
-            <div className="visual-lines"><i /><i /><i /></div>
-            <div className="product-logo-centered"><ActiveLogo size={96} light /></div>
-            <p>{content.products.items[activeProduct].tag}</p>
+            <div className="product-logo-centered"><img src={activeMarkSrc} className="product-visual-logo" alt="" aria-hidden="true" /></div>
           </div>
           <div className="product-copy">
-            <div className="product-copy-logo"><ActiveLogo size={48} /></div>
+            <div className="product-copy-logo"><img src={activeMarkSrc} className="product-copy-logo-img" alt="" aria-hidden="true" /></div>
             <p className="eyebrow">{content.products.items[activeProduct].tag}</p>
             <h3>{content.products.items[activeProduct].name}</h3>
             <p>{content.products.items[activeProduct].description}</p>
@@ -103,7 +75,7 @@ export default function Page() {
 
       <section className="contact section-pad" id="contact"><p className="eyebrow">{content.contact.eyebrow}</p><h2>{content.contact.title}</h2><a className="button button-copper" href={`mailto:${content.contact.email}`}>{content.contact.cta}<ArrowRight aria-hidden="true" /></a><p className="contact-email">{content.contact.email}</p></section>
 
-      <footer className="footer"><a className="brand" href="#top"><SkaleanMark size={22} /><span>SKALEAN</span></a><p>{content.footer.description}</p><div className="footer-links"><a href="/mentions-legales">Mentions légales</a><a href="/confidentialite">Confidentialité</a></div><small>{content.footer.copyright}</small></footer>
+      <footer className="footer"><a className="brand" href="#top"><img src="/logo-skalean-mark.png" alt="" aria-hidden="true" className="brand-img brand-img-footer" /><span>SKALEAN</span></a><p>{content.footer.description}</p><div className="footer-links"><a href="/mentions-legales">Mentions légales</a><a href="/confidentialite">Confidentialité</a></div><small>{content.footer.copyright}</small></footer>
     </main>
   )
 }
