@@ -1,0 +1,70 @@
+{
+  "navigation": {
+    "product": "Produit",
+    "company": "Skalean",
+    "resources": "Ressources",
+    "solutions": "Solutions",
+    "pricing": "Tarifs",
+    "login": "Se connecter",
+    "cta": "Parler à un expert"
+  },
+  "hero": {
+    "eyebrow": "SOUVERAINETÉ DES DONNÉES",
+    "title": "La maîtrise de vos données, à l'échelle de votre ambition",
+    "description": "Skalean transforme la complexité de l'IA en décisions fiables, gouvernées et directement actionnables.",
+    "primaryCta": "Découvrir Skalean",
+    "secondaryCta": "Voir nos solutions",
+    "proof": ["Données souveraines", "IA de confiance", "Performance métier"]
+  },
+  "intro": {
+    "eyebrow": "UNE NOUVELLE ÉCHELLE",
+    "title": "L'IA utile commence par des fondations solides.",
+    "description": "Nous concevons des solutions qui protègent vos données, sécurisent vos usages et donnent à vos équipes la clarté nécessaire pour agir."
+  },
+  "products": {
+    "eyebrow": "LA SUITE SKALEAN",
+    "title": "Deux briques. Une même exigence.",
+    "description": "De la protection sémantique au pilotage des risques, Skalean accompagne les organisations qui veulent avancer avec confiance.",
+    "items": [
+      {
+        "name": "ChabLayer",
+        "tag": "PROTECTION SÉMANTIQUE",
+        "description": "Protège les prompts et les données sensibles avant qu'ils n'atteignent vos modèles IA.",
+        "detail": "Une couche de confiance entre vos équipes et l'IA."
+      },
+      {
+        "name": "PowerCockpit",
+        "tag": "PILOTAGE DES RISQUES DATA",
+        "description": "Donne au COMEX une vision claire des risques, des usages et de la valeur créée par la donnée.",
+        "detail": "Décidez plus vite, avec les bons signaux au bon moment."
+      }
+    ]
+  },
+  "howItWorks": {
+    "eyebrow": "COMMENT ÇA MARCHE",
+    "title": "De la donnée sous contrôle aux décisions éclairées",
+    "description": "Une approche lisible pour transformer vos enjeux de confiance en leviers de croissance.",
+    "steps": [
+      { "number": "01", "title": "Cartographier", "description": "Identifiez vos actifs data, vos usages IA et les zones qui méritent votre attention." },
+      { "number": "02", "title": "Protéger", "description": "Appliquez des garde-fous sémantiques et opérationnels qui respectent votre contexte." },
+      { "number": "03", "title": "Piloter", "description": "Suivez les risques et les progrès dans un cockpit conçu pour décider sereinement." }
+    ]
+  },
+  "manifesto": {
+    "eyebrow": "NOTRE CONVICTION",
+    "title": "La souveraineté n'est pas un frein. C'est votre avantage compétitif.",
+    "description": "Skalean réunit expertise data, intelligence artificielle et exigence de gouvernance pour créer des systèmes plus sûrs, plus performants et plus humains."
+  },
+  "contact": {
+    "eyebrow": "PRÊT À CHANGER D'ÉCHELLE ?",
+    "title": "Parlons de ce que vos données peuvent rendre possible.",
+    "cta": "Prendre rendez-vous",
+    "email": "bonjour@skalean.fr"
+  },
+  "footer": {
+    "description": "Souveraineté des données, performance de l'IA.",
+    "copyright": "© 2026 Skalean. Tous droits réservés.",
+    "links": ["Mentions légales", "Confidentialité"]
+  }
+}
+                    
