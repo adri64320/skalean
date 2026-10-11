@@ -23,18 +23,17 @@ export default function MentionsLegales() {
 
         <Section title="Éditeur du site">
           <p>Le présent site internet est édité par la société <strong>Skalean</strong>, société par actions simplifiée (SAS) au capital de [montant] euros.</p>
-          <Row label="Siège social" value="[Adresse du siège social]" />
-          <Row label="SIRET" value="[Numéro SIRET]" />
-          <Row label="RCS" value="[Ville] [Numéro RCS]" />
-          <Row label="Directeur de publication" value="Adrien Bernard" />
+          <Row label="Siège social" value="4, avenue des Ternes, Paris 17" />
+          <Row label="SIRET" value="99924352000015" />
+          <Row label="RCS" value="999243520 RCS Paris" />
+          <Row label="Directeur de publication" value="Karim Chaabouni" />
           <Row label="Contact" value="contact@skalean.fr" />
         </Section>
 
         <Section title="Hébergement">
           <p>Le site est hébergé par :</p>
-          <Row label="Hébergeur" value="Vercel Inc." />
-          <Row label="Adresse" value="340 Pine Street, Suite 701, San Francisco, CA 94104, États-Unis" />
-          <Row label="Site web" value="vercel.com" />
+          <Row label="Hébergeur" value="IONOS" />
+          <Row label="Site web" value="ionos.com" />
         </Section>
 
         <Section title="Propriété intellectuelle">

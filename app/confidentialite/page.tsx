@@ -25,7 +25,7 @@ export default function Confidentialite() {
         <Section title="Responsable du traitement">
           <p>Le responsable du traitement des données personnelles collectées sur ce site est :</p>
           <Row label="Société" value="Skalean SAS" />
-          <Row label="Adresse" value="[Adresse du siège social]" />
+          <Row label="Adresse" value="4, avenue des Ternes, Paris 17" />
           <Row label="Contact" value="contact@skalean.fr" />
         </Section>
 
